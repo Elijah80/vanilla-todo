@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+:root {
+	--RichBlue: rgb(1, 50, 255);
+	--VioletBlue: rgb(43, 0, 191);
+	--CobaltBlue: rgb(0, 71, 171);
+	--CssBlue: rgb(21,114,182);
+	--ReactBlue: rgb(97,218,251);
+	--MidnightBlue: rgb(10, 13, 64);
+	--PurpleBlue: rgb(101, 25, 221);
+	--MintGreen: rgb(59,186,156);
+	--BrightMint: rgb(79,255,176);
+	--LightMint: rgb(182,255,187);
+	--Cyan: rgb(70,255,211);
+	--Charcoal: rgb(27, 27, 27);
+	--RedOrange: rgb(255,63,52);
+	--Orange: rgb(255,165,0);
+	--JsYellow: rgb(247,223,30);
+	--Cream: rgb(255,255,228);
+	--White: rgb(255, 255, 255);
+	--Black: rgb(0,0,0);
+	--LightGray: rgb(207, 207, 207);
+  --Lato('Lato', sans-serif);
+}
+
+.heading-lg {
+	font-size: 450%;
+}
+
+.heading-md {
+	font-size: 300%;
+}
