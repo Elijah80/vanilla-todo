@@ -1,4 +1,4 @@
 # Todo App
-![App With Tasks](./images/todo-with-tasks.PNG)
+![App with tasks](./images/todo-with-tasks.PNG){height="300px" width="400px"}
 
 -this project was created using vanilla javascript
