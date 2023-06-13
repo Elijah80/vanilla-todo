@@ -17,18 +17,13 @@
   </head>
 
   <body>
-    <div class="container">
-      <h1>Todo App</h1>
-      <form id="todo-form" class="add-todo">
-        <input type="text" id="todo-input">
-        <button type="submit" id="add-todo">Add</button>
-      </form>
-      <ul id="todo-list" class="todo-list">
-        <li class="todo-item"><span>Wake Up</span><i class="fa-solid fa-check" title="Complete Todo"></i><i class="fa-solid fa-pen-to-square" title="Edit Todo"></i><i class="fa-solid fa-trash" title="Delete Todo"></i></li>
-        <li class="todo-item"><span>Have Coffee</span><i class="fa-solid fa-check" title="Complete Todo"></i><i class="fa-solid fa-pen-to-square" title="Edit Todo"></i><i class="fa-solid fa-trash" title="Delete Todo"></i></li>
-        <li class="todo-item"><span class="completed">Resume Life</span><i class="fa-solid fa-pen-to-square" title="Edit Todo"></i><i class="fa-solid fa-trash" title="Delete Todo"></i></li>
-      </ul>
+    <div id="app">
+      <h1>To-Do App</h1>
+      <input type="text" id="taskInput" placeholder="Enter a task">
+      <button id="addTask">Add Task</button>
+      <ul id="taskList"></ul>
     </div>
+
     <script src="script.js"></script>
   </body>
 
