@@ -26,6 +26,9 @@ function addTask() {
     renderTasks(tasks);
 
     taskInput.value = "";
+  } else {
+    alert('Please enter a task!');
+    return;
   }
 }
 
