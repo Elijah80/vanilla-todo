@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function addTask() {
   const taskInput = document.getElementById("taskInput");
-  const taskList = document.getElementById("taskList");
 
   if (taskInput.value !== "") {
     let tasks = [];
@@ -42,6 +41,22 @@ function removeTask(index) {
   }
 }
 
+function editTask(index) {
+  let tasks = JSON.parse(localStorage.getItem('tasks'));
+
+  if (tasks && tasks.length > index) {
+    const editedTask = prompt('Edit the task:', tasks[index]);
+
+    if (editedTask !== null && editedTask.trim() !== '') {
+      tasks[index] = editedTask.trim();
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      renderTasks(tasks);
+    } else {
+      alert('A blank edit is not permitted. Please enter a valid edit.');
+    }
+  }
+}
+
 function renderTasks(tasks) {
   const taskList = document.getElementById("taskList");
 
@@ -53,12 +68,21 @@ function renderTasks(tasks) {
     li.classList.add('todo-item');
     li.textContent = task;
 
+    const editTaskBtn = document.createElement('button');
+    editTaskBtn.classList.add('fa-solid', 'fa-pen-to-square', 'edit-task');
+    editTaskBtn.title = 'Edit Task';
+    editTaskBtn.onclick = function() {
+      editTask(index);
+    };
+
     const deleteTaskBtn = document.createElement('button');
     deleteTaskBtn.classList.add('fa-solid', 'fa-trash', 'delete-task');
+    deleteTaskBtn.title = 'Delete Task';
     deleteTaskBtn.onclick = function() {
       removeTask(index);
     };
 
+    li.appendChild(editTaskBtn);
     li.appendChild(deleteTaskBtn);
     taskList.appendChild(li);
   });

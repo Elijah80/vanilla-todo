@@ -25,7 +25,7 @@ h1 {
 }
 
 #app {
-	max-width: 550px;
+	max-width: 500px;
 	margin: 100px auto;
 	background-color: var(--White);
 	padding: 20px;
@@ -66,16 +66,6 @@ h1 {
 	margin: 15px 0;
 }
 
-.todo-item .fa-trash {
-	right: 25px;
-  color: red;
-}
-
-.todo-item .fa-check {
-  right: 75px;
-  color: green;
-}
-
 .todo-item {
 	border-bottom: 2px solid var(--LightGray);
 	padding: 10px 0;
@@ -86,14 +76,20 @@ h1 {
 	border-bottom: none;
 }
 
-.delete-task {
+.edit-task {
+	background-color: transparent;
 	border: none;
 	cursor: pointer;
+	color: var(--Orange);
 	position: absolute;
+	right: 55px;
 }
 
-/* Completed todo styles */
-.completed {
-	text-decoration: line-through;
-	color: #999;
+.delete-task {
+	background-color: transparent;
+	border: none;
+	color: var(--RedOrange);
+	cursor: pointer;
+	position: absolute;
+	right: 5px;
 }
