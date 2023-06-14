@@ -24,6 +24,11 @@ h1 {
 	display: none;
 }
 
+.completed {
+	text-decoration: line-through;
+	color: #999;
+}
+
 #app {
 	max-width: 500px;
 	margin: 100px auto;
@@ -74,6 +79,15 @@ h1 {
 
 .todo-item:last-child {
 	border-bottom: none;
+}
+
+.complete-task {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	color: var(--JadeGreen);
+	position: absolute;
+	right: 110px;
 }
 
 .edit-task {
