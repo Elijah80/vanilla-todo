@@ -48,7 +48,7 @@ function editTask(index) {
 	let tasks = JSON.parse(localStorage.getItem('tasks'))
 
 	if (tasks && tasks.length > index) {
-		const editedTask = prompt('Edit the task:', tasks[index])
+		const editedTask = prompt('Edit the task:')
 
 		if (editedTask !== null && editedTask.trim() !== '') {
 			tasks[index].title = editedTask.trim()
@@ -77,46 +77,68 @@ function renderTasks(tasks) {
 	// Clear previous tasks
 	taskList.innerHTML = ''
 
+	const filterOption = document.getElementById('filterOption')
+	const filterValue = filterOption.value
+
 	tasks.forEach(function (task, index) {
-		const li = document.createElement('li')
-		const taskTitle = document.createElement('span')
+		if (
+			filterValue === 'all' ||
+			(filterValue === 'completed' && task.completed) ||
+			(filterValue === 'incomplete' && !task.completed)
+		) {
+			const li = document.createElement('li')
+			const taskTitle = document.createElement('span')
 
-		li.classList.add('todo-item')
+			li.classList.add('todo-item')
 
-		taskTitle.textContent = task.title
+			taskTitle.textContent = task.title
 
-		if (task.completed) {
-			taskTitle.classList.add('completed')
+			if (task.completed) {
+				taskTitle.classList.add('completed')
+			}
+
+			const completeTaskBtn = document.createElement('button')
+			completeTaskBtn.classList.add('complete-task')
+			completeTaskBtn.title = 'Complete'
+			completeTaskBtn.textContent = task.completed
+				? 'Undo'
+				: completeTaskBtn.classList.add('fa-solid', 'fa-check')
+			completeTaskBtn.onclick = function () {
+				completeTask(index)
+			}
+
+			const editTaskBtn = document.createElement('button')
+			editTaskBtn.classList.add('fa-solid', 'fa-pen-to-square', 'edit-task')
+			editTaskBtn.title = 'Edit'
+			editTaskBtn.onclick = function () {
+				editTask(index)
+			}
+
+			const deleteTaskBtn = document.createElement('button')
+			deleteTaskBtn.classList.add('fa-solid', 'fa-trash', 'delete-task')
+			deleteTaskBtn.title = 'Delete'
+			deleteTaskBtn.onclick = function () {
+				deleteTask(index)
+			}
+
+			li.appendChild(taskTitle)
+			li.appendChild(completeTaskBtn)
+			li.appendChild(editTaskBtn)
+			li.appendChild(deleteTaskBtn)
+			taskList.appendChild(li)
 		}
-
-		const completeTaskBtn = document.createElement('button')
-		completeTaskBtn.classList.add('complete-task')
-    completeTaskBtn.title = 'Complete';
-		completeTaskBtn.textContent = task.completed ? 'Undo' : completeTaskBtn.classList.add('fa-solid', 'fa-check');
-		completeTaskBtn.onclick = function () {
-			completeTask(index)
-		}
-
-		const editTaskBtn = document.createElement('button')
-		editTaskBtn.classList.add('fa-solid', 'fa-pen-to-square', 'edit-task')
-		editTaskBtn.title = 'Edit'
-		editTaskBtn.onclick = function () {
-			editTask(index)
-		}
-
-		const deleteTaskBtn = document.createElement('button')
-		deleteTaskBtn.classList.add('fa-solid', 'fa-trash', 'delete-task')
-		deleteTaskBtn.title = 'Delete'
-		deleteTaskBtn.onclick = function () {
-			deleteTask(index)
-		}
-
-		li.appendChild(taskTitle)
-		li.appendChild(completeTaskBtn)
-		li.appendChild(editTaskBtn)
-		li.appendChild(deleteTaskBtn)
-		taskList.appendChild(li)
 	})
 }
 
 addTaskBtn.addEventListener('click', addTask)
+
+const filterOption = document.getElementById('filterOption')
+filterOption.addEventListener('change', function () {
+	let tasks = []
+
+	if (localStorage.getItem('tasks')) {
+		tasks = JSON.parse(localStorage.getItem('tasks'))
+	}
+
+	renderTasks(tasks)
+})

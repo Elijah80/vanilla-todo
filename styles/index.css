@@ -29,12 +29,18 @@ h1 {
 	color: #999;
 }
 
+/* Main Content */
 #app {
 	max-width: 500px;
 	margin: 100px auto;
 	background-color: var(--White);
 	padding: 20px;
 	border-radius: 10px;
+}
+
+/* Get Task */
+.get-task {
+	margin-bottom: 15px;
 }
 
 #taskInput {
@@ -64,7 +70,27 @@ h1 {
 	box-shadow: 0 0 5px var(--MintGreen);
 }
 
-/* Todo list styles */
+/*  Filter Section */
+.filter-task {
+	margin-bottom: 40px;
+}
+.filter-task label {
+	font-size: 14px;
+}
+
+#filterOption {
+	width: 120px;
+	border-color: var(--MintGreen);
+	border-radius: 5px;
+	outline-color: var(--MintGreen);
+}
+
+#filterOption option {
+	background-color: var(--Charcoal);
+	color: var(--White);
+}
+
+/* Todo List */
 #taskList {
 	list-style-type: none;
 	padding: 0;

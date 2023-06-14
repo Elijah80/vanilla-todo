@@ -19,8 +19,20 @@
   <body>
     <div id="app">
       <h1>To-Do App</h1>
-      <input type="text" id="taskInput" placeholder="Enter a task">
-      <button id="addTask">Add Task</button>
+      <div class="get-task">
+        <input type="text" id="taskInput" placeholder="Enter a task">
+        <button id="addTask">Add Task</button>
+      </div>
+      <div class="filter-task">
+        <label for="filterOption">Filter:</label>
+        <select id="filterOption">
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="incomplete">Incomplete</option>
+        </select>
+      </div>
+
+
       <ul id="taskList"></ul>
     </div>
 
